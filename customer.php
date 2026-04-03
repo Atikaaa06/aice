@@ -282,6 +282,107 @@ $kotaList = $conn->query("SELECT DISTINCT kota FROM customer WHERE kota IS NOT N
             transition:opacity .2s;white-space:nowrap;
         }
         .maps-mini-btn:hover{opacity:.75;}
+
+        /* ── RESPONSIF MOBILE ─────────────────────────── */
+        @media (max-width: 768px) {
+            .page { padding: 12px !important; margin-top: 16px !important; }
+
+            /* Header halaman — susun vertikal */
+            .page > div:first-child {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 10px !important;
+            }
+
+            /* Tombol-tombol header full width */
+            .page > div:first-child > div:last-child {
+                flex-direction: column !important;
+                width: 100% !important;
+            }
+            .page > div:first-child > div:last-child button,
+            .page > div:first-child > div:last-child > div {
+                width: 100% !important;
+            }
+            #dropdownPrint {
+                left: 0 !important;
+                right: 0 !important;
+                min-width: unset !important;
+                position: fixed !important;
+                top: auto !important;
+                bottom: 0 !important;
+                border-radius: 16px 16px 0 0 !important;
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+
+            /* Filter bar — vertikal */
+            .filter-bar {
+                flex-direction: column !important;
+                gap: 8px !important;
+                padding: 12px !important;
+            }
+            .filter-bar input,
+            .filter-bar select {
+                width: 100% !important;
+                min-width: unset !important;
+                font-size: 14px !important;
+            }
+            .btn-cari {
+                width: 100% !important;
+                text-align: center;
+                padding: 11px !important;
+            }
+
+            /* Tabel — scroll horizontal */
+            .table-wrap {
+                overflow-x: auto !important;
+                -webkit-overflow-scrolling: touch;
+                border-radius: 10px !important;
+            }
+            table { min-width: 650px; }
+            thead th { padding: 10px 10px !important; font-size: 10px !important; }
+            tbody td { padding: 10px 10px !important; font-size: 12px !important; }
+
+            /* Tombol aksi CRUD — susun vertikal agar muncul */
+            td > div[style*="display:flex"] {
+                flex-direction: column !important;
+                gap: 4px !important;
+                align-items: stretch !important;
+            }
+            .btn-edit-c, .btn-del-c, .btn-print-c {
+                width: 100% !important;
+                justify-content: center !important;
+                padding: 6px 8px !important;
+                font-size: 11px !important;
+            }
+
+            /* Back bar */
+            .back-bar-global { padding: 8px 12px !important; }
+            .breadcrumb-trail { display: none !important; }
+
+            /* Modal full-screen dari bawah */
+            .modal-overlay { align-items: flex-end !important; padding: 0 !important; }
+            .modal {
+                max-width: 100% !important;
+                border-radius: 16px 16px 0 0 !important;
+                max-height: 92vh !important;
+            }
+
+            /* Form grid 1 kolom */
+            .form-grid2 { grid-template-columns: 1fr !important; }
+
+            /* Maps preview iframe ukuran lebih kecil */
+            .maps-wrap iframe { height: 160px !important; }
+
+            /* Role info wrap */
+            .role-info { font-size: 11px !important; padding: 8px 12px !important; }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 { font-size: 20px !important; }
+            .dash-card { max-width: 100% !important; }
+            .dash-card-value { font-size: 22px !important; }
+        }
     </style>
 </head>
 <body>
@@ -368,18 +469,10 @@ $kotaList = $conn->query("SELECT DISTINCT kota FROM customer WHERE kota IS NOT N
     </div>
 
     <!-- Statistik -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px;">
-        <div class="dash-card" style="animation-delay:.05s">
+    <div style="margin-bottom:24px;">
+        <div class="dash-card" style="animation-delay:.05s;max-width:260px;">
             <div class="dash-card-label">Total Customer</div>
             <div class="dash-card-value"><?= $totalCustomer ?></div>
-        </div>
-        <div class="dash-card" style="animation-delay:.1s;border-left-color:#16a34a;">
-            <div class="dash-card-label">Aktif</div>
-            <div class="dash-card-value"><?= $totalAktif ?></div>
-        </div>
-        <div class="dash-card" style="animation-delay:.15s;border-left-color:#6b7280;">
-            <div class="dash-card-label">Non-aktif</div>
-            <div class="dash-card-value"><?= $totalNonaktif ?></div>
         </div>
     </div>
 
