@@ -651,8 +651,30 @@ tbody td {
     .navbar-menu::-webkit-scrollbar { display: none; }
     .nav-link { padding: 0 14px; font-size: 11px; letter-spacing: 0.8px; }
     .navbar-brand { font-size: 15px; }
-    .page, .page-sm { padding: 0 16px; margin-top: 24px; }
+    .page, .page-sm { padding: 0 16px; margin-top: 16px; }
     .card-body { padding: 24px 20px; }
+
+    /* Dash grid 2 kolom di mobile */
+    .dash-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+    }
+    .dash-card { padding: 16px !important; }
+    .dash-card-value { font-size: 22px !important; }
+
+    /* Menu grid 2 kolom */
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+    }
+    .menu-btn { padding: 18px 12px !important; }
+    .menu-btn-icon { font-size: 24px !important; }
+
+    /* Table scroll */
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+    /* Page header */
+    .page-header h1 { font-size: 22px; }
 }
 
 body {
